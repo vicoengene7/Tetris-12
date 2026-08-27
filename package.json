@@ -1,0 +1,28 @@
+{
+  "name": "tetris-12",
+  "version": "1.0.0",
+  "description": "con tests funcionales para la mayoria de los aspectos basicos del juego y verificacion de estados.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicoengene7/Tetris-12.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/vicoengene7/Tetris-12/issues"
+  },
+  "homepage": "https://github.com/vicoengene7/Tetris-12#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}
