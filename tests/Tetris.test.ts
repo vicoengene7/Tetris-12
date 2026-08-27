@@ -1,10 +1,13 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { Tetris } from '../src/Tetris';
 
-describe('Tetris', () => {
-  it('debería crear una instancia de Tetris', () => {
-    const t = new Tetris();
+describe("Tetris", () => {
 
-    expect(t).not.toBeNull();
+  test("crear una instancia de Tetris", () => {
+    
+    var tetris1 = new Tetris();
+
+    expect(tetris1).not.toBeNull();
   });
+
 });
