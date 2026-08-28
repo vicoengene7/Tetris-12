@@ -1,7 +1,7 @@
 export abstract class Pieza {
 
-    posiciones: number[][][];
-    posicionActual: number;
+    protected posiciones: number[][][];
+    protected posicionActual: number;
 
     constructor(posiciones: number[][][]) {
         this.posiciones = posiciones;
