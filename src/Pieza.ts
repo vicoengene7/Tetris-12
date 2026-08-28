@@ -1,4 +1,5 @@
-export class Pieza {
+export abstract class Pieza {
+
     posiciones: number[][][];
     posicionActual: number;
 
