@@ -118,6 +118,14 @@ export class Tablero {
       .some((celda) => celda === 0);
   }
 
+  get ancho(): number {
+    return this._ancho;
+  }
+
+  get alto(): number {
+    return this._alto;
+  }
+
   get cuadricula(): number[] {
     return this._cuadricula;
   }
