@@ -1,27 +1,27 @@
 export abstract class Pieza {
 
 
-protected posiciones: number[][][];
-protected posicionActual: number;
+protected _posiciones: number[][][];
+protected _posicionActual: number;
 
 constructor(posiciones: number[][][]) {
-    this.posiciones = posiciones;
-    this.posicionActual = 0;
+    this._posiciones = posiciones;
+    this._posicionActual = 0;
 }
 
 get forma(): number[][] {
-    return this.posiciones[this.posicionActual]!;
+    return this._posiciones[this._posicionActual]!;
 }
 
 rotarDerecha(): void {
-    this.posicionActual =
-        (this.posicionActual + 1) % this.posiciones.length;
+    this._posicionActual =
+        (this._posicionActual + 1) % this._posiciones.length;
 }
 
 rotarIzquierda(): void {
-    this.posicionActual =
-        (this.posicionActual - 1 + this.posiciones.length)
-        % this.posiciones.length;
+    this._posicionActual =
+        (this._posicionActual - 1 + this._posiciones.length)
+        % this._posiciones.length;
 }
 
 }
