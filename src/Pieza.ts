@@ -24,4 +24,12 @@ rotarIzquierda(): void {
         % this._posiciones.length;
 }
 
+rotarA(indice: number): void {
+    this._posicionActual = indice % this._posiciones.length;
+}
+
+get totalRotaciones(): number {
+    return this._posiciones.length;
+}
+
 }
