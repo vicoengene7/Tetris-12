@@ -6,7 +6,7 @@ export class Reloj {
         this._ticks++;
     }
 
-    get _tomarTicks(): number {
+    get tomarTicks(): number {
         return this._ticks;
     }
 }
