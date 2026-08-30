@@ -47,4 +47,90 @@ describe('1. Test de creación de piezas (forma inicial)', () => {
       [1, 1, 0],
     ]);
   });
-})
+});
+// ===========================================================================
+// test de rotacion (a derecha e izquierda)
+// ===========================================================================
+describe('2. Test de rotación de piezas (derecha e izquierda)', () => {
+  test('PiezaT rota a derecha e izquierda recorriendo sus estados', () => {
+    const pieza = new PiezaT();
+    const formaInicial = pieza.forma;
+
+    pieza.rotarDerecha();
+    expect(pieza.forma).toEqual([
+      [1, 0],
+      [1, 1],
+      [1, 0],
+    ]);
+
+    pieza.rotarDerecha();
+    expect(pieza.forma).toEqual([
+      [1, 1, 1],
+      [0, 1, 0],
+    ]);
+
+    pieza.rotarIzquierda();
+    expect(pieza.forma).toEqual([
+      [1, 0],
+      [1, 1],
+      [1, 0],
+    ]);
+
+    pieza.rotarIzquierda();
+    expect(pieza.forma).toEqual(formaInicial);
+  });
+
+  test('PiezaPalo rota a vertical y regresa a horizontal', () => {
+    const pieza = new PiezaPalo();
+    const horizontal = pieza.forma;
+
+    pieza.rotarDerecha();
+    expect(pieza.forma).toEqual([
+      [1],
+      [1],
+      [1],
+      [1],
+    ]);
+
+    pieza.rotarIzquierda();
+    expect(pieza.forma).toEqual(horizontal);
+  });
+
+  test('PiezaCuadrado mantiene su forma al rotar', () => {
+    const pieza = new PiezaCuadrado();
+    const formaInicial = pieza.forma;
+
+    pieza.rotarDerecha();
+    expect(pieza.forma).toEqual(formaInicial);
+
+    pieza.rotarIzquierda();
+    expect(pieza.forma).toEqual(formaInicial);
+  });
+
+  test('PiezaL rota 4 veces a la derecha y vuelve al inicio', () => {
+    const pieza = new PiezaL();
+    const formaInicial = pieza.forma;
+
+    pieza.rotarDerecha();
+    pieza.rotarDerecha();
+    pieza.rotarDerecha();
+    pieza.rotarDerecha();
+
+    expect(pieza.forma).toEqual(formaInicial);
+  });
+
+  test('PiezaPerro rota a la derecha y luego a la izquierda', () => {
+    const pieza = new PiezaPerro();
+    const formaInicial = pieza.forma;
+
+    pieza.rotarDerecha();
+    expect(pieza.forma).toEqual([
+      [1, 0],
+      [1, 1],
+      [0, 1],
+    ]);
+
+    pieza.rotarIzquierda();
+    expect(pieza.forma).toEqual(formaInicial);
+  });
+});
