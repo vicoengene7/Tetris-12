@@ -51,9 +51,18 @@ export class Tablero {
   }
 
   public añadirPieza(pieza: Pieza): boolean {
-    const anchoPieza = pieza.forma[0]!.length; // ancho real del estado actual de la pieza
+    const anchoPieza = pieza.forma[0]!.length;
     const colMax = this._ancho - anchoPieza;
     const x = Math.floor(Math.random() * (colMax + 1));
+    const y = 0;
+    const puedeAgregar = this._piezaActiva === null && this.puedeColocar(pieza, x, y);
+
+    puedeAgregar && this.activarPieza(pieza, x, y);
+    return puedeAgregar;
+  }
+
+  public añadirPiezaEn(pieza: Pieza, x: number, rotacion: number): boolean {
+    pieza.rotarA(rotacion);
     const y = 0;
     const puedeAgregar = this._piezaActiva === null && this.puedeColocar(pieza, x, y);
 
