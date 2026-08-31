@@ -1,4 +1,4 @@
-﻿import { describe, expect, test } from "vitest";
+import { describe, expect, test } from "vitest";
 import { Tablero } from "../src/Tablero";
 import { PiezaT } from '../src/PiezaT';
 import { PiezaCuadrado } from '../src/PiezaCuadrado';
@@ -60,6 +60,24 @@ describe("3. Test del tablero (Board)", () => {
     pieza.rotarDerecha();
     const resultado = tablero.añadirPieza(pieza);
     expect(resultado).toBe(true);
+  });
+});
+
+// ===========================================================================
+// Requisito 6: En cada movimiento la pieza baja 1 fila (si puede)
+// ===========================================================================
+describe("6. Movimiento descendente del tablero", () => {
+  test("moverAbajo() baja la pieza una fila y retorna true si puede", () => {
+    const tablero = new Tablero();
+    tablero.añadirPiezaEn(new PiezaCuadrado(), 4, 0);
+
+    const puedeBajar = tablero.moverAbajo();
+    expect(puedeBajar).toBe(true);
+
+    const grilla = tablero.cuadriculaConPiezaActiva;
+    // la pieza debe estar ahora en fila 1, no en fila 0
+    expect(grilla[1 * 10 + 4]).toBe(1);
+    expect(grilla[0 * 10 + 4]).toBe(0);
   });
 });
 
