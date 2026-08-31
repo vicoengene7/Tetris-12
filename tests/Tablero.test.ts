@@ -35,3 +35,15 @@ test("una pieza se fija completa en el tablero", () => {
 
     expect(bloques.length).toBe(4);
 });
+
+import { PiezaT } from '../src/PiezaT';
+test("se agrega una pieza después de una rotación", () => {
+    const tablero = new Tablero();
+    const pieza = new PiezaT();
+
+    pieza.rotarDerecha();
+
+    const resultado = tablero.añadirPieza(pieza);
+
+    expect(resultado).toBe(true);
+});
