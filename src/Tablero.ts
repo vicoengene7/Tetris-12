@@ -118,7 +118,27 @@ export class Tablero {
       .some((celda) => celda === 0);
   }
 
+  get ancho(): number {
+    return this._ancho;
+  }
+
+  get alto(): number {
+    return this._alto;
+  }
+
   get cuadricula(): number[] {
     return this._cuadricula;
+  }
+
+  get cuadriculaConPiezaActiva(): number[] {
+    const copia = [...this._cuadricula];
+    this._piezaActiva?.forma.forEach((filaArr, f) =>
+      filaArr.forEach((celda, c) => {
+        if (celda === 1) {
+          copia[this.indice(this._piezasY + f, this._piezasX + c)] = 1;
+        }
+      })
+    );
+    return copia;
   }
 }
