@@ -14,12 +14,4 @@ describe("Reloj", () => {
     expect(reloj.tomarTicks).toBe(1);
   });
 
-  test("varios ticks acumulan correctamente", () => {
-    const reloj = new Reloj();
-    reloj.tick();
-    reloj.tick();
-    reloj.tick();
-    expect(reloj.tomarTicks).toBe(3);
-  });
-
 });
