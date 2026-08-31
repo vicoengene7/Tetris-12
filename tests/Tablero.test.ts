@@ -19,7 +19,7 @@ test ("añadir una pieza al tablero", () => {
     expect(resultado).toBe(true);
 });
 
-describe("Tablero - limpiarLinea", () => {
+describe("LimpiarLinea", () => {
 
   test("si se colocan varias piezas y completan una línea, se suma y se elimina", () => {
     const tablero = new Tablero();
