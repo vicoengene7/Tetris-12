@@ -1,5 +1,6 @@
 import { describe, expect, test, vi } from "vitest";
 import { Tablero } from "../src/Tablero";
+import { PiezaT } from '../src/PiezaT';
 
 describe("Tablero", () => {
 
@@ -45,4 +46,14 @@ describe("LimpiarLinea", () => {
     expect(lineasEliminadas).toBe(2);
   });
 
+test("se agrega una pieza después de una rotación", () => {
+    const tablero = new Tablero();
+    const pieza = new PiezaT();
+
+    pieza.rotarDerecha();
+
+    const resultado = tablero.añadirPieza(pieza);
+
+    expect(resultado).toBe(true);
+});
 });
