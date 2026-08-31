@@ -19,19 +19,30 @@ test ("añadir una pieza al tablero", () => {
     expect(resultado).toBe(true);
 });
 
-test("una pieza se fija completa en el tablero", () => {
+describe("Tablero - limpiarLinea", () => {
+
+  test("si se colocan varias piezas y completan una línea, se suma y se elimina", () => {
     const tablero = new Tablero();
-    const pieza = new PiezaCuadrado();
+    const columnas = [0, 2, 4, 6, 8];
+    const colMax = 10 - 2; 
 
-    tablero.añadirPieza(pieza);
+    columnas.forEach((columna) => {
+      
+      vi.spyOn(Math, "random").mockReturnValue((columna + 0.5) / (colMax + 1));
 
-    while (tablero.moverAbajo()) {
-       
-    }
+      const pieza = new PiezaCuadrado();
+      tablero.añadirPieza(pieza);
 
-    const bloques = tablero.cuadricula.filter(
-        celda => celda === 1
-    );
+      for (let i = 0; i < 19; i++) {
+        tablero.moverAbajo();
+      }
+    });
 
-    expect(bloques.length).toBe(4);
+    vi.restoreAllMocks();
+
+    const lineasEliminadas = tablero.limpiarLinea();
+
+    expect(lineasEliminadas).toBe(2);
+  });
+
 });
